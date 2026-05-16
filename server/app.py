@@ -23,7 +23,7 @@ ROUTE 1: Create the homepage index route for the app and provide the appropriate
 def index():
 
     # Create a simple HTML page to display the required message to the user
-    response_body = "Welcome to Flatiron Cars!"
+    response_body = "Welcome to Flatiron Cars"
 
     # Set the status code of OK and return the data
     status_code = 200
@@ -43,7 +43,7 @@ def take_model(model):
         response_body = f"Flatiron {model} is in our fleet!"
         status_code = 200
     else:
-        response_body = f"No models called {model} exists in our catalog."
+        response_body = f"No models called {model} exists in our catalog"
         status_code = 404
 
     return make_response(response_body, status_code)
