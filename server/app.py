@@ -53,12 +53,9 @@ def take_model(model):
     response_body = f"""
         <h1>Welcome to Flatiron Cars!</h3>
     """
- 
-    # Use generator expression to see if model in list
-    in_model = next((model in existing_models, None))
 
     # Control flow for the application
-    if in_model:
+    if model in existing_models:
         response_body = f"Flatiron {model} is in our fleet!"
         status_code = 200
     else:
