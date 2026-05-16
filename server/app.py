@@ -21,19 +21,9 @@ ROUTE 1: Create the homepage index route for the app and provide the appropriate
 """
 @app.route('/')
 def index():
-    # Creawte host header sent by the client
-    host = request.headers.get("Host")
-
-    # Create the name for the Flask app
-    appname = current_app.name
 
     # Create a simple HTML page to display the required message to the user
-    response_body = f"""
-        <h1> The host for this page is {host}</h1>
-        <h2> The name for this application is {appname}</h1>
-        <h3> The path of this application on the user's device is {g.path}</h3>
-        <h3><a href="/model">View models</a></h3>
-    """
+    response_body = "Welcome to Flatiron Cars!"
 
     # Set the status code of OK and return the data
     status_code = 200
@@ -48,21 +38,14 @@ ROUTE 2: Create the /<model> route for the app and provide the appropriate decor
 """
 @app.route('/<model>')
 def take_model(model):
-
-    # Create a simple HTML page to display the required message to the user
-    response_body = f"""
-        <h1>Welcome to Flatiron Cars!</h3>
-    """
-
     # Control flow for the application
     if model in existing_models:
         response_body = f"Flatiron {model} is in our fleet!"
         status_code = 200
     else:
-        response_body = f"Sorry {model} is not in our fleet!"
+        response_body = f"No models called {model} exists in our catalog."
         status_code = 404
 
-    
     return make_response(response_body, status_code)
 
 if __name__ == '__main__':
